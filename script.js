@@ -20,9 +20,32 @@ $(document).ready(function () {
     function updateActivePage() {
         $('.lyric-page').removeClass('active');
         $('#page' + currentPage).addClass('active');
+
+        // Nếu là trang cuối → thêm nút trái tim
+        if (currentPage === totalPages) {
+            if ($('#heartBtn').length === 0) {
+                $('#page' + totalPages).append(`
+                    <div style="margin-top:15px;">
+                        <a id="heartBtn" 
+                           href="https://www.google.com/search?q=trai+tim+hinh+anh" 
+                           target="_blank"
+                           style="
+                               display:inline-block;
+                               padding:10px 20px;
+                               background:#ff6b9a;
+                               color:white;
+                               border-radius:20px;
+                               text-decoration:none;
+                               font-weight:bold;
+                           ">
+                           ❤️ Nhấn vào tim nè ❤️
+                        </a>
+                    </div>
+                `);
+            }
+        }
     }
 
-    // Nút MỞ / TIẾP
     openBtn.on('click', function () {
         playAudioOnce();
 
@@ -33,15 +56,17 @@ $(document).ready(function () {
             currentPage = 1;
             updateActivePage();
             resetBtn.show();
+
+            // Đổi chữ nút thành "Tiếp"
+            openBtn.text("Tiếp");
             return;
         }
 
-        // Nếu đã mở và CHƯA phải trang cuối → sang trang tiếp theo
+        // Nếu chưa tới trang cuối → sang trang tiếp theo
         if (currentPage < totalPages) {
             currentPage++;
             updateActivePage();
         }
-        // Nếu là trang cuối → không làm gì cả (dừng)
     });
 
     // Nút ĐÓNG
@@ -51,5 +76,11 @@ $(document).ready(function () {
         currentPage = 1;
         updateActivePage();
         resetBtn.hide();
+
+        // Đổi lại chữ nút thành "Mở"
+        openBtn.text("Mở");
+
+        // Xóa nút trái tim nếu có
+        $('#heartBtn').remove();
     });
 });
