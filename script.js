@@ -66,7 +66,10 @@ $(document).ready(function () {
         if (currentPage < totalPages) {
             currentPage++;
             updateActivePage();
-        }
+        } else {
+    // Nếu đang ở trang cuối → chuyển sang link khác
+            window.location.href = "https://website-text-color-u-b4x3.bolt.host/";
+}
     });
 
     // Nút ĐÓNG
