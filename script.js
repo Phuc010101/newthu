@@ -68,7 +68,7 @@ $(document).ready(function () {
             updateActivePage();
         } else {
     // Nếu đang ở trang cuối → chuyển sang link khác
-            window.location.href = "https://website-text-color-u-b4x3.bolt.host/";
+            window.location.href = "https://falling-text-and-pic-cx4a.bolt.host";
 }
     });
 
