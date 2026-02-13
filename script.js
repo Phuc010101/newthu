@@ -27,7 +27,7 @@ $(document).ready(function () {
                 $('#page' + totalPages).append(`
                     <div style="margin-top:15px;">
                         <a id="heartBtn" 
-                           href="https://www.google.com/search?q=trai+tim+hinh+anh" 
+                           href="https://website-text-color-u-b4x3.bolt.host/" 
                            target="_blank"
                            style="
                                display:inline-block;
